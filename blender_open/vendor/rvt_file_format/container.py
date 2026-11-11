@@ -1,6 +1,6 @@
 """Read a Revit .rvt/.rfa container: OLE streams, block interleave, gzip members.
 
-See RVT_FORMAT.md §5. Read-only; needs `olefile`.
+Read-only; needs `olefile`.
 """
 from __future__ import annotations
 

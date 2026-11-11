@@ -2,7 +2,7 @@
 """nwd_graph.py - object-graph chunks of an NWD (version 448): LcOpNwdPartition, LcOpNwdLogicalHierarchy,
 LcOaPartitionProps pages, LcOpOdyFileInfoChunk.
 
-Independent implementation (layouts learnt from the real sample + the nwd-reader reference, no code copied).
+Independent implementation (layouts learnt from real files).
 
 Wire grammar (all scalars aligned to their size relative to the chunk start; strings = u32 length (no NUL) + bytes,
 0xFFFFFFFF = null string; the next scalar re-aligns):

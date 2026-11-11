@@ -1,4 +1,4 @@
-"""Element parameters (RVT_FORMAT.md §13).
+"""Element parameters.
 
 Stored values: objects of class ParamValue{Double,Int,AString,ElementId} anywhere in an element's
 decoded record ({m_paramId, m_value}). Names:

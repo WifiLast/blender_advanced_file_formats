@@ -9,8 +9,7 @@ Chunk layout (flags 1, stored form = what nwd_tool.py keeps in <n>_...LcOpNwdGeo
   The concatenation of all inflated blocks is the concatenation of the geometry records;
   record i has recordSize[i] bytes. Directory entry: prefix=4, index=len(index stream).
 
-Record (raw / uncompressed mode, i.e. LcOpNwdGeometryCompress flags == 0), layout learnt from the real file and the
-nwd-reader reference (no code copied). All scalars aligned to their size relative to the record start:
+Record (raw / uncompressed mode, i.e. LcOpNwdGeometryCompress flags == 0), layout learnt from real files. All scalars aligned to their size relative to the record start:
   u32 100            root object id
   u32 94             type: 94 triangle strips, 95 lines (polyline strips), 96 points
   u32 101, u32 60    coordinate object id / type
@@ -251,7 +250,7 @@ if __name__ == "__main__":
 
 # ------------------------------------------------------------------------------------------------------------
 # Compressed-mode (GeometryCompress flags 0x3f) type-94 records: the form real Navisworks files use. Grammar learnt
-# from real records (verified by decode coverage, see decode94 / selftest_geometry) and the nwd-reader reference.
+# from real records (verified by decode coverage, see decode94 / selftest_geometry).
 #   u32 100, 94, 101, 60 | i32 n (vertex slots) | u32 floats, floats x f32 (palette; palette = floats/3 entries)
 #   | [index RLE x n if palette < n]  | 3 x slot { u32 objectId (0 none) [, u32 type, payload] }
 #   normals (type 100): i32 -n, u32 palette P, ceil(P*3*bits/32) u32 words, [index RLE x n if P < n]

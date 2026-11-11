@@ -1,6 +1,6 @@
 """Element records in Partitions/<n> (stage 3) - schema-driven interpreter.
 
-Framing of a decoded partition member (RVT_FORMAT.md §11):
+Framing of a decoded partition member:
   record := u32 elementId, u32 hash, u32 len, payload[len], u32 len
   payload := u16 classId, fields of the class chain (base class first)
 
@@ -41,7 +41,7 @@ def _framed(m: bytes, off: int, hdr: int):
 def walk_member(m: bytes):
     """Yield (offset, elementId, payload) for the records of one decoded member.
 
-    Two framings (RVT_FORMAT.md §11):
+    Two framings:
       element record:   u32 id, u32 hash, u32 len, payload, u32 len
       element header:   u32 id, u32 len, payload (ElementHeader), u32 len
     """

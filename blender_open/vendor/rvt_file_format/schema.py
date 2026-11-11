@@ -1,6 +1,6 @@
 """Parser for the Revit class schema stream (Formats/Latest, decoded).
 
-Grammar (reverse-engineered from Revit 2023 files, see RVT_FORMAT.md §10):
+Grammar (reverse-engineered from Revit 2023 files:
 
   schema   := record*                               (until end of data)
   record   := u16 lead, u16 nameLen, name[nameLen],
@@ -26,7 +26,7 @@ from dataclasses import dataclass, field as dfield
 
 FIRST_ID = 0x0C
 
-# base type codes 1..12; names partly inferred from field names (see RVT_FORMAT.md)
+# base type codes 1..12; names partly inferred from field names
 BASE_NAMES = {
     0x01: "bool?", 0x02: "int8?", 0x03: "int16?", 0x04: "int32", 0x05: "uint32?",
     0x06: "float", 0x07: "double", 0x08: "string", 0x09: "base9?", 0x0A: "base10?",

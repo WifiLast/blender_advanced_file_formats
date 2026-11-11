@@ -1,4 +1,4 @@
-"""Materials (RVT_FORMAT.md §14): MaterialElem -> name, colour, transparency, properties; per-face resolution.
+"""Materials: MaterialElem -> name, colour, transparency, properties; per-face resolution.
 
 Colour: Material.m_color is a Windows COLORREF 0x00BBGGRR (verified on materials whose names
 state their RGB, e.g. "Glas - orange 255-128-0" = 0x0080FF). Transparency 0..1.
@@ -15,7 +15,7 @@ Resolution order for a face (first hit wins):
 On top of this, the view's filters (view_filters.py) may override colour / transparency per element:
 with_view_override() derives a material entry ("view", base material, rgb, transparency).
 
-Material properties (RVT_FORMAT.md §15), what Revit's material browser shows:
+Material properties, what Revit's material browser shows:
   - identity / graphics: Material fields (m_color, m_transparency, m_shininess, ...) + the MaterialElem's own
     ParamValues (description, manufacturer, cost, ...); appearance asset = AppearanceAssetElem.m_pAppearanceAsset.m_Name
   - physical / thermal: Material.m_assetMap.m_sharedAssetIdMap = [(MaterialAssetType GUID, PropertySetElement id)];

@@ -1,6 +1,6 @@
 """Stage 4: B-rep geometry from decoded GElement records -> triangle meshes.
 
-Model (RVT_FORMAT.md §12):
+Model:
   Geometry (GBRep) .m_pFaces -> Face { m_pSurf: Plane | CylSurf | ..., m_pFirstLoop: EdgeLoop }
   EdgeLoop.m_next -> first Edge (ref); Edge.m_next[side] -> next Edge or back to the loop;
   EdgeLoop.m_nextLoop -> further loops (holes) of the same face.
@@ -22,12 +22,12 @@ def _ref(x):
 
 
 DETAIL_FINE = 3
-FILTER_3D = False       # visible_3d() is not validated yet (removed real geometry); see RVT_FORMAT.md §12
+FILTER_3D = False       # visible_3d() is not validated yet (removed real geometry);
 FINE_FILTER = True      # hidden_fine_3d(): the validated subset (detail level, plan-only direction faces)
 
 
 def visible_3d(gfilter: dict) -> bool:
-    """Evaluate a GFilter for a 3D view at detail level Fine (RVT_FORMAT.md §12):
+    """Evaluate a GFilter for a 3D view at detail level Fine:
     GConditionInt m_param 3 = detail level (1 coarse, 2 medium, 3 fine; m_comp 0 '!=',
     3 '==', see hidden_fine_3d); GConditionDir = view-direction (2D symbolic) -> hidden; GConditionSelected ->
     hidden; a filter with only GConditionCut conditions is plan-cut representation -> hidden."""
@@ -271,7 +271,7 @@ def surface_info(s: dict):
     """-> (f(u, v) -> xyz ndarray, (u step, v step), (u period, v period)) or None if unsupported.
     A step is the largest parameter interval one triangle edge may span in that direction (None = the surface is
     straight in that direction); a period is 2 pi for angle parameters (0 = not periodic).
-    Parametrisations verified by edge consistency (RVT_FORMAT.md §12)."""
+    Parametrisations verified by edge consistency."""
     c = s.get("__class__")
     if c == "Plane":
         o, x, y = _a(s, "m_origin"), _a(s, "m_xVec"), _a(s, "m_yVec")

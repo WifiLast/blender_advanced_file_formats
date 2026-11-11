@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """nwd_fragments.py - decode / encode the NWD `LcOpNwdFragments` chunk (version 448 layout).
 
-Independent implementation from (a) a real file (external_other/2024_12_19_IBN1 ...nwd) and
-(b) layout facts learnt from the nwd-reader reference (no code copied; PolyForm Noncommercial).
+Independent implementation from real files.
 
 Wire format (after the chunk's zlib envelope is removed):
   u32 count                              number of top-level shape objects

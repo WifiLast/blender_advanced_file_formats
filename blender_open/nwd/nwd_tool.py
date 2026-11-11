@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
 """nwd_tool.py - read ("import") and write ("export") the Navisworks .nwd *container*.
 
-Independent implementation. Facts come from (a) our own Ghidra decompiles of
-lcutil.dll / lcodyplugin.dll / lcuzlib.dll (see NWD_FORMAT.md) and (b) cross-checking the
-container layout against the third-party reader in external_other/nwd-reader
-(PolyForm Noncommercial - no code was copied from it, it was used as a reference for the
-file layout only).
+Independent implementation of the container layout.
 
 Scope: container only - header, footer, zlib-compressed chunk directory, chunk payload
 bytes. Optional decoding of chunk payload *envelopes* (zlib blocks, Blowfish segments).
