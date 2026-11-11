@@ -1,0 +1,20 @@
+schema_version = "1.0.0"
+id = "cad_nwd_rvt_importer"
+name = "Navisworks & Revit Importer"
+version = "0.1.0"
+tagline = "Import Navisworks .nwd and Revit .rvt files"
+maintainer = "Wiffzackius"
+type = "add-on"
+tags = ["Import-Export"]
+blender_version_min = "4.2.0"
+license = ["SPDX:GPL-3.0-or-later"]
+website = "https://github.com/WifiLast/blender_advanced_file_formats"
+copyright = [
+    "2026 Martin St.",
+]
+
+[permissions]
+files = "Read Navisworks and Revit files from disk"
+
+[build]
+paths_exclude_pattern = ["__pycache__/", "*.zip", "tool_call_error_log/", "*.pyc"]
